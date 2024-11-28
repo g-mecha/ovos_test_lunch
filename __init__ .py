@@ -68,32 +68,32 @@ class LunchSkill(OVOSSkill):
         """
         return self.settings.get("log_level", "INFO")
 
-    @intent_handler(IntentBuilder("ThankYouIntent").require("ThankYouKeyword"))
-    def handle_thank_you_intent(self, message):
-        """This is an Adapt intent handler, it is triggered by a keyword."""
-        self.speak_dialog("welcome")
+    # @intent_handler(IntentBuilder("ThankYouIntent").require("ThankYouKeyword"))
+    # def handle_thank_you_intent(self, message):
+    #     """This is an Adapt intent handler, it is triggered by a keyword."""
+    #     self.speak_dialog("welcome")
 
-    @intent_handler("HowAreYou.intent")
-    def handle_how_are_you_intent(self, message):
-        """This is a Padatious intent handler.
-        It is triggered using a list of sample phrases."""
+    # @intent_handler("HowAreYou.intent")
+    # def handle_how_are_you_intent(self, message):
+    #     """This is a Padatious intent handler.
+    #     It is triggered using a list of sample phrases."""
 
-        self.speak_dialog("how.are.you")
-        LOG.info("There are five types of log messages: 'info, debug, warning, error, and exception.")
-        # Skills can log useful information. These will appear in the CLI and
-        # in the skills.log file under ~/.mycroft/logs. LOG.info() is the most
-        # common log level, but it is recommended to use the others when
-        # appropriate:
-        # LOG.debug() - Messages useful for developers to debug the skill
-        # LOG.warning() - Indicates something unexpected happened, but the skill
-        #                 can recover
-        # LOG.error() - Indicates a recoverable error
-        # LOG.exception() - Indicates an exception that causes the skill to crash
-        #                  and is non-recoverable
-        if self.log_level == "WARNING":
-            LOG.warning("To be able to see debug logs, you need to change the 'log_level' setting to 'DEBUG' in the core configuration (mycroft.conf)")
+    #     self.speak_dialog("how.are.you")
+    #     LOG.info("There are five types of log messages: 'info, debug, warning, error, and exception.")
+    #     # Skills can log useful information. These will appear in the CLI and
+    #     # in the skills.log file under ~/.mycroft/logs. LOG.info() is the most
+    #     # common log level, but it is recommended to use the others when
+    #     # appropriate:
+    #     # LOG.debug() - Messages useful for developers to debug the skill
+    #     # LOG.warning() - Indicates something unexpected happened, but the skill
+    #     #                 can recover
+    #     # LOG.error() - Indicates a recoverable error
+    #     # LOG.exception() - Indicates an exception that causes the skill to crash
+    #     #                  and is non-recoverable
+    #     if self.log_level == "WARNING":
+    #         LOG.warning("To be able to see debug logs, you need to change the 'log_level' setting to 'DEBUG' in the core configuration (mycroft.conf)")
 
-    @intent_handler(IntentBuilder("HelloWorldIntent").require("HelloWorldKeyword"))
+    @intent_handler(IntentBuilder("hungryitent").require("hungry_keyword"))
     def handle_hello_world_intent(self, message):
         """
         speak_dialog() is an OVOS skill method that safely handles
@@ -101,9 +101,10 @@ class LunchSkill(OVOSSkill):
         back to the user.
         """
         # wait=True will block the message bus until the dialog is finished
-        self.speak_dialog("hello.world", wait=True)
+        self.speak_dialog("hungry_responce", wait=True)
         # this will speak the string without translation
-        self.speak("hello english folks")
+        # self.speak("hello english folks")
+        self.speak_dialog("what_food", wait=True)
 
     def stop(self):
         """Optional action to take when "stop" is requested by the user.
