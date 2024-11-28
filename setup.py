@@ -63,7 +63,7 @@ setup(
     url=URL,
     author=SKILL_AUTHOR,
     description='OVOS hello world skill plugin',
-    author_email='jarbasai@mailfence.com',
+    author_email='maydayfan11@gmail.com',
     license='Apache-2.0',
     package_dir={SKILL_PKG: ""},
     package_data={SKILL_PKG: find_resource_files()},

@@ -53,8 +53,8 @@ class LunchSkill(OVOSSkill):
         # https://openvoiceos.github.io/message_spec/
         # this can be tested using `mana` (https://github.com/NeonGeckoCom/neon-mana-utils)
         # `mana send-message hello.world`
-        self.add_event("hello.world", self.handle_hello_world_intent)
-        self.my_var = "hello world"
+        self.add_event("hungry_responce", self.handle_hungry_keyword_intent)
+        #self.my_var = "hello world"
 
     def on_settings_changed(self):
         """This method is called when the skill settings are changed."""
@@ -94,7 +94,7 @@ class LunchSkill(OVOSSkill):
     #         LOG.warning("To be able to see debug logs, you need to change the 'log_level' setting to 'DEBUG' in the core configuration (mycroft.conf)")
 
     @intent_handler(IntentBuilder("hungryitent").require("hungry_keyword"))
-    def handle_hello_world_intent(self, message):
+    def handle_hungry_keyword_intent(self, message):
         """
         speak_dialog() is an OVOS skill method that safely handles
         formatting and speaking a dialog file and its translated dialog
@@ -106,10 +106,10 @@ class LunchSkill(OVOSSkill):
         # self.speak("hello english folks")
         self.speak_dialog("what_food", wait=True)
 
-    def stop(self):
-        """Optional action to take when "stop" is requested by the user.
-        This method should return True if it stopped something or
-        False (or None) otherwise.
-        If not relevant to your skill, feel free to remove.
-        """
-        pass
+    # def stop(self):
+    #     """Optional action to take when "stop" is requested by the user.
+    #     This method should return True if it stopped something or
+    #     False (or None) otherwise.
+    #     If not relevant to your skill, feel free to remove.
+    #     """
+    #     pass
